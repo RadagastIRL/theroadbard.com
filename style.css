@@ -1,0 +1,464 @@
+/* ═══════════════════════════════════════════
+   Roadbard — theroadbard.com
+   style.css
+   ═══════════════════════════════════════════ */
+
+/* ── TOKENS ── */
+:root {
+  --bg:           #0e0b06;
+  --bg-mid:       #1a1409;
+  --bark:         #3d2e0f;
+  --saddle:       #5c4a1e;
+  --oak:          #8b7355;
+  --gold:         #c4a96d;
+  --gold-dim:     #9a7e4f;
+  --parchment:    #f0e8d0;
+  --parchment-dim:#c8b882;
+  --forest:       #4a6741;
+
+  --font-display: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  --font-body:    'IM Fell English', 'Palatino Linotype', Georgia, serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── RESET ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--parchment);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── GRAIN OVERLAY ── */
+/* CSS-only noise texture using SVG filter inline */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* ── MAIN ── */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+
+  /* Subtle radial light source — like firelight from below */
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 60%, #2a1c08 0%, transparent 100%),
+    radial-gradient(ellipse 100% 80% at 50% 100%, #1a1006 0%, transparent 60%),
+    var(--bg);
+}
+
+/* Atmospheric line at horizon — road horizon suggestion */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--saddle) 30%, var(--saddle) 70%, transparent);
+  opacity: 0.4;
+}
+
+/* ── AWEN MARK ── */
+.awen {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  animation: fade-up 1.2s var(--ease-out-expo) both;
+  animation-delay: 0.1s;
+}
+
+.awen span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.65;
+}
+
+/* ── WORDMARK ── */
+.wordmark {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 10vw, 7.5rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--parchment);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+
+  animation: fade-up 1.2s var(--ease-out-expo) both;
+  animation-delay: 0.2s;
+
+  display: flex;
+  align-items: flex-start;
+}
+
+.raised-cap {
+  font-size: 1.25em;
+  color: var(--parchment);
+  line-height: 1;
+}
+
+.wordmark-mid {
+  line-height: 1;
+}
+
+/* ── ORNAMENTAL RULE ── */
+.rule-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: min(400px, 80%);
+  margin-bottom: 1.5rem;
+
+  animation: fade-up 1.2s var(--ease-out-expo) both;
+  animation-delay: 0.3s;
+}
+
+.rule-line {
+  flex: 1;
+  height: 1px;
+  background: var(--oak);
+  opacity: 0.6;
+}
+
+.rule-diamond {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+/* ── TAGLINE ── */
+.tagline {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.6rem;
+
+  animation: fade-up 1.2s var(--ease-out-expo) both;
+  animation-delay: 0.4s;
+}
+
+/* ── PERSONA ── */
+.persona {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(0.85rem, 2vw, 1.05rem);
+  color: var(--oak);
+  letter-spacing: 0.02em;
+  margin-bottom: 2.5rem;
+
+  animation: fade-up 1.2s var(--ease-out-expo) both;
+  animation-delay: 0.5s;
+}
+
+/* ── LEDE ── */
+.lede {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  color: var(--parchment-dim);
+  opacity: 0.75;
+  max-width: 44ch;
+  line-height: 1.8;
+
+  animation: fade-up 1.2s var(--ease-out-expo) both;
+  animation-delay: 0.65s;
+}
+
+/* ── LINKS SECTION ── */
+.links-section {
+  width: 100%;
+  max-width: 900px;
+  padding: 4rem 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.links-heading {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--oak);
+  margin-bottom: 2.5rem;
+}
+
+/* ── LINK CARDS GRID ── */
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+.link-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 1.75rem 1.25rem;
+
+  background: linear-gradient(160deg, #1f1609 0%, #160f05 100%);
+  border: 1px solid var(--bark);
+  border-radius: 3px;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.25s var(--ease-out-expo);
+  cursor: pointer;
+}
+
+.link-card:hover {
+  border-color: var(--gold-dim);
+  background: linear-gradient(160deg, #2a1c0a 0%, #1c1407 100%);
+  transform: translateY(-3px);
+}
+
+.link-card:hover .link-icon {
+  color: var(--gold);
+}
+
+.link-icon {
+  font-size: 1.75rem;
+  color: var(--oak);
+  transition: color 0.3s ease;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+}
+
+.link-label {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--parchment);
+  font-weight: 600;
+}
+
+.link-sub {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--oak);
+  line-height: 1.4;
+}
+
+/* ── BLOG SECTION ── */
+.blog-section {
+  width: 100%;
+  max-width: 900px;
+  padding: 1rem 2rem 4rem;
+}
+
+.blog-link {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.4rem 2rem;
+
+  border: 1px solid var(--bark);
+  border-left: 3px solid var(--gold-dim);
+  background: linear-gradient(to right, #1f160800, #1a120500);
+  border-radius: 2px;
+
+  transition: border-left-color 0.3s ease, background 0.3s ease, transform 0.25s var(--ease-out-expo);
+}
+
+.blog-link:hover {
+  border-left-color: var(--gold);
+  background: linear-gradient(to right, #2a1c0a30, transparent);
+  transform: translateX(4px);
+}
+
+.blog-label {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--parchment);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.blog-desc {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--oak);
+  flex: 1;
+}
+
+.blog-arrow {
+  font-size: 1.1rem;
+  color: var(--gold-dim);
+  flex-shrink: 0;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.blog-link:hover .blog-arrow {
+  color: var(--gold);
+  transform: translateX(4px);
+}
+
+/* ── FOOTER ── */
+.site-footer {
+  width: 100%;
+  padding: 2rem 2rem 2.5rem;
+  text-align: center;
+}
+
+.footer-rule {
+  width: min(300px, 60%);
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--bark) 40%, var(--bark) 60%, transparent);
+  margin: 0 auto 1.5rem;
+}
+
+.footer-copy {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--oak);
+  opacity: 0.7;
+}
+
+.footer-copy a {
+  color: var(--oak);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.footer-copy a:hover {
+  color: var(--gold-dim);
+  border-bottom-color: var(--gold-dim);
+}
+
+/* ── KEYFRAMES ── */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── RESPONSIVE ── */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .links-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .blog-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .blog-arrow {
+    align-self: flex-end;
+  }
+
+  .lede br {
+    display: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .hero {
+    padding: 4rem 1.5rem 3.5rem;
+  }
+
+  .links-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .link-card {
+    padding: 1.4rem 0.75rem;
+  }
+
+  .links-section,
+  .blog-section {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+/* Very small screens — single column */
+@media (max-width: 340px) {
+  .links-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── REDUCED MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  .wordmark,
+  .tagline,
+  .persona,
+  .lede,
+  .awen,
+  .rule-wrap {
+    animation: none;
+  }
+
+  .link-card:hover,
+  .blog-link:hover {
+    transform: none;
+  }
+}
