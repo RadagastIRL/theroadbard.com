@@ -1,0 +1,22 @@
+/* ═══════════════════════════════════════════
+   Roadbard — shared design tokens
+   shared/tokens.css
+   ═══════════════════════════════════════════ */
+
+:root {
+  --bg:           #0e0b06;
+  --bg-mid:       #1a1409;
+  --bark:         #3d2e0f;
+  --saddle:       #5c4a1e;
+  --oak:          #8b7355;
+  --gold:         #c4a96d;
+  --gold-dim:     #9a7e4f;
+  --parchment:    #f0e8d0;
+  --parchment-dim:#c8b882;
+  --forest:       #4a6741;
+
+  --font-display: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  --font-body:    'IM Fell English', 'Palatino Linotype', Georgia, serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
