@@ -12,7 +12,9 @@ $postFile = null;
 
 foreach (glob($postsDir . '*.php') as $file) {
   $meta = [];
+  ob_start();
   include $file;
+  ob_end_clean();
   if (($meta['slug'] ?? '') === $slug) {
     $postFile = $file;
     break;
