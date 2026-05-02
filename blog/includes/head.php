@@ -5,7 +5,7 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://blog.theroadbard.com/<?php echo htmlspecialchars($pageSlug ?? ''); ?>">
+  <meta property="og:url" content="https://theroadbard.com/blog/<?php echo htmlspecialchars($pageSlug ?? ''); ?>">
   <meta property="og:title" content="<?php echo htmlspecialchars($pageTitle ?? 'Roadbard — The Long Path'); ?>">
   <meta property="og:description" content="<?php echo htmlspecialchars($pageDescription ?? 'Behind-the-scenes writing from the Roadbard project.'); ?>">
 
@@ -16,4 +16,4 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/blog/style.css">

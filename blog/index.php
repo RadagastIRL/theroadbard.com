@@ -51,7 +51,7 @@ usort($posts, fn($a, $b) => strcmp($b['date'], $a['date']));
       <ol class="post-list" reversed>
         <?php foreach ($posts as $post): ?>
           <li class="post-item">
-            <a href="/post.php?slug=<?php echo htmlspecialchars($post['slug']); ?>" class="post-item-link">
+            <a href="/blog/post.php?slug=<?php echo htmlspecialchars($post['slug']); ?>" class="post-item-link">
               <span class="post-item-date"><?php echo htmlspecialchars(date('j F Y', strtotime($post['date']))); ?></span>
               <h2 class="post-item-title"><?php echo htmlspecialchars($post['title']); ?></h2>
               <?php if (!empty($post['description'])): ?>
