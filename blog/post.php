@@ -2,7 +2,7 @@
 $slug = preg_replace('/[^a-z0-9\-]/', '', strtolower($_GET['slug'] ?? ''));
 
 if (empty($slug)) {
-  header('Location: /blog/');
+  header('Location: /');
   exit;
 }
 
@@ -25,7 +25,7 @@ if (!$postFile || ($meta['status'] ?? '') !== 'published') {
   $pageDescription = 'This post could not be found.';
   $pageSlug        = '';
   include __DIR__ . '/includes/head.php';
-  echo '<body><main class="blog-main"><p class="not-found">Post not found. <a href="/blog/">Return to the index.</a></p></main></body></html>';
+  echo '<body><main class="blog-main"><p class="not-found">Post not found. <a href="/">Return to the index.</a></p></main></body></html>';
   exit;
 }
 
@@ -57,7 +57,7 @@ $postBody = trim($rawOutput);
 
     <article class="post">
 
-      <a href="/blog/" class="back-link" aria-label="Back to post index">← All posts</a>
+      <a href="/" class="back-link" aria-label="Back to post index">← All posts</a>
 
       <header class="post-header">
         <div class="awen" aria-hidden="true">
@@ -83,7 +83,7 @@ $postBody = trim($rawOutput);
           <span class="rule-line"></span>
         </div>
         <p class="post-signoff">— Radagast, a wandering druid on two wheels.</p>
-        <a href="/blog/" class="back-link">← All posts</a>
+        <a href="/" class="back-link">← All posts</a>
       </footer>
 
     </article>
