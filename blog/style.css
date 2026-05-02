@@ -12,6 +12,7 @@
   --oak:          #8b7355;
   --gold:         #c4a96d;
   --gold-dim:     #9a7e4f;
+  --bronze:       #847950;
   --parchment:    #f0e8d0;
   --parchment-dim:#c8b882;
   --forest:       #4a6741;
@@ -83,7 +84,7 @@ a {
 }
 
 .header-wordmark:hover {
-  color: var(--gold);
+  color: var(--bronze);
 }
 
 .header-raised-cap {
@@ -105,7 +106,7 @@ a {
 }
 
 .header-nav-link:hover {
-  color: var(--gold-dim);
+  color: var(--bronze);
 }
 
 /* ── MAIN LAYOUT ── */
@@ -209,7 +210,7 @@ a {
 }
 
 .post-item-link:hover {
-  border-left-color: var(--gold-dim);
+  border-left-color: var(--bronze);
   background: linear-gradient(to right, #1f160820, transparent);
   transform: translateX(3px);
 }
@@ -266,7 +267,7 @@ a {
 }
 
 .back-link:hover {
-  color: var(--gold-dim);
+  color: var(--bronze);
 }
 
 .post-header {
@@ -369,8 +370,8 @@ a {
 }
 
 .post-body a:hover {
-  color: var(--gold);
-  border-bottom-color: var(--gold-dim);
+  color: var(--bronze);
+  border-bottom-color: var(--bronze);
 }
 
 /* ── POST FOOTER ── */
@@ -418,8 +419,8 @@ a {
 }
 
 .footer-copy a:hover {
-  color: var(--gold-dim);
-  border-bottom-color: var(--gold-dim);
+  color: var(--bronze);
+  border-bottom-color: var(--bronze);
 }
 
 /* ── 404 ── */
@@ -438,8 +439,8 @@ a {
 }
 
 .not-found a:hover {
-  color: var(--gold);
-  border-bottom-color: var(--gold-dim);
+  color: var(--bronze);
+  border-bottom-color: var(--bronze);
 }
 
 /* ── KEYFRAMES ── */

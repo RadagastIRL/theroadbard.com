@@ -1,13 +1,14 @@
 <?php
 $pageTitle       = 'The Long Path — Roadbard';
 $pageDescription = 'Behind-the-scenes writing from the Roadbard project.';
-$pageSlug        = '';
+$pageType        = 'website';
+$pageUrl         = 'https://theroadbard.com/blog/';
 
 // Read and sort published posts
 $postsDir = __DIR__ . '/posts/';
 $posts = [];
 
-foreach (glob($postsDir . '*.php') as $file) {
+foreach (glob($postsDir . '*.php') ?: [] as $file) {
   $meta = [];
   ob_start();
   include $file;
@@ -50,7 +51,7 @@ usort($posts, fn($a, $b) => strcmp($b['date'], $a['date']));
     <?php if (empty($posts)): ?>
       <p class="no-posts">Nothing published yet. Check back soon.</p>
     <?php else: ?>
-      <ol class="post-list" reversed>
+      <ul class="post-list">
         <?php foreach ($posts as $post): ?>
           <li class="post-item">
             <a href="/blog/post.php?slug=<?php echo htmlspecialchars($post['slug']); ?>" class="post-item-link">
@@ -62,7 +63,7 @@ usort($posts, fn($a, $b) => strcmp($b['date'], $a['date']));
             </a>
           </li>
         <?php endforeach; ?>
-      </ol>
+      </ul>
     <?php endif; ?>
 
   </main>

@@ -4,8 +4,8 @@
   <meta name="author" content="Radagast">
 
   <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://theroadbard.com/blog/<?php echo htmlspecialchars($pageSlug ?? ''); ?>">
+  <meta property="og:type" content="<?php echo htmlspecialchars($pageType ?? 'article'); ?>">
+  <meta property="og:url" content="<?php echo htmlspecialchars($pageUrl ?? 'https://theroadbard.com/blog/'); ?>">
   <meta property="og:title" content="<?php echo htmlspecialchars($pageTitle ?? 'Roadbard — The Long Path'); ?>">
   <meta property="og:description" content="<?php echo htmlspecialchars($pageDescription ?? 'Behind-the-scenes writing from the Roadbard project.'); ?>">
 

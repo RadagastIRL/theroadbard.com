@@ -10,7 +10,7 @@ if (empty($slug)) {
 $postsDir = __DIR__ . '/posts/';
 $postFile = null;
 
-foreach (glob($postsDir . '*.php') as $file) {
+foreach (glob($postsDir . '*.php') ?: [] as $file) {
   $meta = [];
   ob_start();
   include $file;
@@ -22,26 +22,39 @@ foreach (glob($postsDir . '*.php') as $file) {
 }
 
 if (!$postFile || ($meta['status'] ?? '') !== 'published') {
-  header('HTTP/1.0 404 Not Found');
+  http_response_code(404);
   $pageTitle       = 'Not found — Roadbard';
   $pageDescription = 'This post could not be found.';
-  $pageSlug        = '';
-  include __DIR__ . '/includes/head.php';
-  echo '<body><main class="blog-main"><p class="not-found">Post not found. <a href="/blog/">Return to the index.</a></p></main></body></html>';
+  $pageType        = 'website';
+  $pageUrl         = 'https://theroadbard.com/blog/';
+  ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<?php include __DIR__ . '/includes/head.php'; ?>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+<?php include __DIR__ . '/includes/header.php'; ?>
+  <main class="blog-main">
+    <p class="not-found">Post not found. <a href="/blog/">Return to the index.</a></p>
+  </main>
+<?php include __DIR__ . '/includes/footer.php'; ?>
+</body>
+</html>
+<?php
   exit;
 }
 
-$pageTitle       = htmlspecialchars($meta['title']) . ' — Roadbard';
+$pageTitle       = $meta['title'] . ' — Roadbard';
 $pageDescription = $meta['description'] ?? '';
-$pageSlug        = $slug;
+$pageType        = 'article';
+$pageUrl         = 'https://theroadbard.com/blog/post.php?slug=' . urlencode($slug);
 
-// Capture post body: re-include and capture output after the metadata block
+// Capture post body
 ob_start();
 include $postFile;
-$rawOutput = ob_get_clean();
-
-// Strip the PHP-executed metadata (already in $meta); keep only HTML output
-$postBody = trim($rawOutput);
+$postBody = trim(ob_get_clean());
 ?>
 <!DOCTYPE html>
 <html lang="en">
