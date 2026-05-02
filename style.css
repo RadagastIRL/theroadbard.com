@@ -217,7 +217,7 @@ main {
 .links-section {
   width: 100%;
   max-width: 900px;
-  padding: 4rem 2rem 1rem;
+  padding: 2.5rem 2rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -302,7 +302,7 @@ main {
 .blog-section {
   width: 100%;
   max-width: 900px;
-  padding: 1rem 2rem 4rem;
+  padding: 1rem 2rem 0.5rem;
 }
 
 .blog-link {
