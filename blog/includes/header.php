@@ -1,5 +1,5 @@
   <header class="site-header">
-    <a href="/blog/" class="header-wordmark" aria-label="Roadbard — back to post index">
+    <a href="/" class="header-wordmark" aria-label="Roadbard — back to post index">
       <span class="header-raised-cap">R</span><span>oadbar</span><span class="header-raised-cap">d</span>
     </a>
     <nav class="header-nav" aria-label="Site navigation">
