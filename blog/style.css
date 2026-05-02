@@ -78,6 +78,7 @@ a {
   color: var(--parchment);
   display: flex;
   align-items: flex-start;
+  line-height: 1;
   transition: color 0.2s ease;
 }
 
@@ -87,6 +88,10 @@ a {
 
 .header-raised-cap {
   font-size: 1.2em;
+  line-height: 1;
+}
+
+.header-wordmark-mid {
   line-height: 1;
 }
 
