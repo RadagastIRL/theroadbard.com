@@ -266,6 +266,10 @@ main {
   color: var(--bronze);
 }
 
+.link-card:hover .link-label {
+  color: var(--bronze);
+}
+
 .link-icon {
   font-size: 1.75rem;
   color: var(--oak);
