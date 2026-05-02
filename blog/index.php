@@ -9,7 +9,9 @@ $posts = [];
 
 foreach (glob($postsDir . '*.php') as $file) {
   $meta = [];
+  ob_start();
   include $file;
+  ob_end_clean();
   if (!empty($meta) && ($meta['status'] ?? '') === 'published') {
     $meta['_file'] = $file;
     $posts[] = $meta;
