@@ -206,7 +206,7 @@ main {
   font-size: clamp(0.9rem, 2vw, 1.05rem);
   color: var(--parchment-dim);
   opacity: 0.75;
-  max-width: 44ch;
+  max-width: 65ch;
   line-height: 1.8;
 
   animation: fade-up 1.2s var(--ease-out-expo) both;
