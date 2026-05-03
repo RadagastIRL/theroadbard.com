@@ -1,0 +1,8 @@
+.DS_Store
+*.log
+.idea/
+.vscode/
+.claude/settings.local.json
+
+# Kept locally, never published — contains the production host path.
+/deploy.sh
