@@ -3,6 +3,7 @@
    shared/tokens.css
    ═══════════════════════════════════════════ */
 
+/* ── DARK (default) ── */
 :root {
   --bg:           #0e0b06;
   --bg-mid:       #1a1409;
@@ -16,8 +17,76 @@
   --parchment-dim:#c8b882;
   --forest:       #4a6741;
 
+  /* Gradient tokens — used for cards and interactive tiles */
+  --card-bg:       linear-gradient(160deg, #1f1609 0%, #160f05 100%);
+  --card-bg-hover: linear-gradient(160deg, #2a1c0a 0%, #1c1407 100%);
+
   --font-display: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
   --font-body:    'IM Fell English', 'Palatino Linotype', Georgia, serif;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  color-scheme: dark;
+}
+
+/* ── LIGHT (OS preference, when no manual override) ── */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg:           #f5edd8;
+    --bg-mid:       #ede2c6;
+    --bark:         #c4a46a;
+    --saddle:       #9a7845;
+    --oak:          #6b5030;
+    --gold:         #7c5c18;
+    --gold-dim:     #956c20;
+    --bronze:       #6b4f22;
+    --parchment:    #1c1208;
+    --parchment-dim:#3d2e12;
+    --forest:       #3a5430;
+
+    --card-bg:       linear-gradient(160deg, #ece3c8 0%, #e6dbbe 100%);
+    --card-bg-hover: linear-gradient(160deg, #e4d9bc 0%, #ddd0aa 100%);
+
+    color-scheme: light;
+  }
+}
+
+/* ── MANUAL DARK ── */
+:root[data-theme="dark"] {
+  --bg:           #0e0b06;
+  --bg-mid:       #1a1409;
+  --bark:         #3d2e0f;
+  --saddle:       #5c4a1e;
+  --oak:          #8b7355;
+  --gold:         #c4a96d;
+  --gold-dim:     #9a7e4f;
+  --bronze:       #847A51;
+  --parchment:    #f0e8d0;
+  --parchment-dim:#c8b882;
+  --forest:       #4a6741;
+
+  --card-bg:       linear-gradient(160deg, #1f1609 0%, #160f05 100%);
+  --card-bg-hover: linear-gradient(160deg, #2a1c0a 0%, #1c1407 100%);
+
+  color-scheme: dark;
+}
+
+/* ── MANUAL LIGHT ── */
+:root[data-theme="light"] {
+  --bg:           #f5edd8;
+  --bg-mid:       #ede2c6;
+  --bark:         #c4a46a;
+  --saddle:       #9a7845;
+  --oak:          #6b5030;
+  --gold:         #7c5c18;
+  --gold-dim:     #956c20;
+  --bronze:       #6b4f22;
+  --parchment:    #1c1208;
+  --parchment-dim:#3d2e12;
+  --forest:       #3a5430;
+
+  --card-bg:       linear-gradient(160deg, #ece3c8 0%, #e6dbbe 100%);
+  --card-bg-hover: linear-gradient(160deg, #e4d9bc 0%, #ddd0aa 100%);
+
+  color-scheme: light;
 }

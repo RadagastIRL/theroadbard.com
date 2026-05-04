@@ -6,6 +6,8 @@
 
 <body>
 
+<?php include 'includes/header.php'; ?>
+
   <!-- Grain overlay -->
   <div class="grain" aria-hidden="true"></div>
 

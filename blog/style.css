@@ -1,27 +1,8 @@
 /* ═══════════════════════════════════════════
    Roadbard — theroadbard.com/blog
    blog/style.css
+   (design tokens live in shared/tokens.css)
    ═══════════════════════════════════════════ */
-
-/* ── TOKENS (duplicated here so blog works standalone) ── */
-:root {
-  --bg:           #0e0b06;
-  --bg-mid:       #1a1409;
-  --bark:         #3d2e0f;
-  --saddle:       #5c4a1e;
-  --oak:          #8b7355;
-  --gold:         #c4a96d;
-  --gold-dim:     #9a7e4f;
-  --bronze:       #847A51;
-  --parchment:    #f0e8d0;
-  --parchment-dim:#c8b882;
-  --forest:       #4a6741;
-
-  --font-display: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-  --font-body:    'IM Fell English', 'Palatino Linotype', Georgia, serif;
-
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-}
 
 /* ── RESET ── */
 *, *::before, *::after {
@@ -96,6 +77,13 @@ a {
   line-height: 1;
 }
 
+/* ── HEADER NAV ── */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
 .header-nav-link {
   font-family: var(--font-display);
   font-size: 0.7rem;
@@ -106,6 +94,48 @@ a {
 }
 
 .header-nav-link:hover {
+  color: var(--bronze);
+}
+
+/* ── THEME TOGGLE ── */
+.theme-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.theme-toggle::before {
+  content: '◐';
+  font-size: 0.75rem;
+  color: var(--oak);
+  margin-right: 0.4em;
+  pointer-events: none;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.theme-select {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--oak);
+  background-color: transparent;
+  border: 1px solid var(--bark);
+  border-radius: 2px;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-select:hover,
+.theme-select:focus-visible {
+  color: var(--bronze);
+  border-color: var(--saddle);
+  outline: none;
+}
+
+.theme-toggle:hover::before {
   color: var(--bronze);
 }
 
@@ -211,8 +241,19 @@ a {
 
 .post-item-link:hover {
   border-left-color: var(--bronze);
-  background: linear-gradient(to right, #1f160820, transparent);
+  background: linear-gradient(to right, rgba(31, 22, 8, 0.13), transparent);
   transform: translateX(3px);
+}
+
+/* Light mode: warm amber tint instead of dark smear */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .post-item-link:hover {
+    background: linear-gradient(to right, rgba(180, 148, 80, 0.10), transparent);
+  }
+}
+
+:root[data-theme="light"] .post-item-link:hover {
+  background: linear-gradient(to right, rgba(180, 148, 80, 0.10), transparent);
 }
 
 .post-item-date {

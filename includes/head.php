@@ -11,6 +11,9 @@
 
   <title>Roadbard — Tales from the long path.</title>
 
+  <!-- Apply stored theme before first paint to prevent flash -->
+  <script>(function(){try{var t=localStorage.getItem('roadbard-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}}());</script>
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,4 +22,9 @@
   <!-- Icons — Font Awesome 6 free -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <link rel="stylesheet" href="style.css">
+  <!-- Design tokens (dark + light) then page styles -->
+  <link rel="stylesheet" href="/shared/tokens.css">
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Theme management -->
+  <script src="/shared/theme.js" defer></script>
